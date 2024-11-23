@@ -5,3 +5,5 @@ pluginManagement {
     }
 }
 rootProject.name = "springcloud-example"
+include("watchdog")
+include("usmp")
