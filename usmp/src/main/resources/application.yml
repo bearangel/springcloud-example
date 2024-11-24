@@ -45,8 +45,8 @@ spring:
           delay: 1000
   datasource:
     driver-class-name: org.postgresql.Driver
-    username: postgres
-    password: 1234.abcd
+    username: #请使用你的数据库
+    password: #请使用你的数据库
     url: jdbc:postgresql://localhost:5432/usmp
   jpa:
     show-sql: true
