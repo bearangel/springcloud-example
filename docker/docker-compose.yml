@@ -16,8 +16,31 @@ services:
     networks:
       - my-network
 
+
+  postgres_db: # 服务名称
+    image: postgres:17.2 # 指定镜像及其版本
+    container_name: postgres # 指定容器的名称
+    restart: always
+    # set shared memory limit when using docker-compose
+    shm_size: 128mb
+    environment:
+      POSTGRES_PASSWORD: 1234.abcd
+    ports: # 端口映射
+      - "5432:5432"
+    volumes: # 数据持久化的配置
+      - postgres-data:/var/lib/postgresql/data
+      - postgres-log:/var/log/postgresql
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
+    networks: # 网络配置
+      - my-network
+
 volumes:
   consul-data:
+  postgres-data:
+  postgres-log:
 
 networks:
   my-network:
